@@ -10,10 +10,10 @@ class node{
         int frequency;
         node* next;
     
-        node(string k, int freq){
+        node(string k){
 
             key = k;
-            frequency = freq;
+            frequency = 1;
             next = nullptr;
 
         }
@@ -37,10 +37,10 @@ class HashTable{
 
 
     //If you want to insert a key int the hash table,
-    void insert(string key, int frequency){
+    void insert(string key){
         int hashed_Index = hash(key);
         if(!(arr[hashed_Index])){
-            arr[hashed_Index] = new node(key, 1); 
+            arr[hashed_Index] = new node(key); 
             return;
         }
         node* curr = arr[hashed_Index];
@@ -54,7 +54,7 @@ class HashTable{
                 return;
             }
             else if(!(curr->next)){
-                curr->next = new node(key, 1);
+                curr->next = new node(key);
                 return;
             }
             curr = curr->next;
@@ -89,3 +89,12 @@ class HashTable{
 
 
 };
+
+int main(){
+    HashTable s;
+    s.insert("chandra");
+    s.insert("kiran");
+    s.insert("chandra");
+
+    cout << s.find("kiran")->frequency;
+}
