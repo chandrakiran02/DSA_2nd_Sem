@@ -50,7 +50,7 @@ class ClosedHashTable{
 			}
 		}
 	}
-	void insert(string key){
+	void insert(string key, string select){
 		int index = hash(key);  
 		if(arr[index].first.empty()){
             arr[index].first = key;
@@ -61,21 +61,40 @@ class ClosedHashTable{
 			arr[index].second++; 
 		}
 		else{
+			
 			// linear probe to another index
-			int i = index+1;
-			while(i%table_size != index){
-                i = i%table_size;
-				if(arr[i].first.empty()){
-                    arr[i].first = key;
-                    arr[i].second = 1;
-					filled++;
-                    break;
+			if (select == "linear"){
+				int i = index+1;
+				while(i%table_size != index){
+					i = i%table_size;
+					if(arr[i].first.empty()){
+						arr[i].first = key;
+						arr[i].second = 1;
+						filled++;
+						break;
+					}
+					else if(arr[i].first == key){
+						arr[i].second++; 
+						break;
+					}
+					i++;
 				}
-                else if(arr[i].first == key){
-			        arr[i].second++; 
-                    break;
-		        }
-				i++;
+			}
+			else if (select == "quadratic"){
+				int i = index;
+				for (int j = 0; j < table_size; j++){
+					i = (index + j*j)%table_size;
+					if(arr[i].first.empty()){
+						arr[i].first = key;
+						arr[i].second = 1;
+						filled++;
+						break;
+					}
+					else if(arr[i].first == key){
+						arr[i].second++; 
+						break;
+					}
+				}
 			}
 		}
         return;
@@ -108,7 +127,7 @@ class ClosedHashTable{
 int main(){
 
     ClosedHashTable h;
-    h.insert("cha");
-    h.insert("cha");
+    h.insert("cha", "quadratic");
+    h.insert("cha", "quadratic");
     cout << h.get("cha");
 }
