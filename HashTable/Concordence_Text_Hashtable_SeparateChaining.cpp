@@ -95,6 +95,6 @@ int main(){
     HashTable s;
 
     s.insert("chandra");
-    int x =  s.arr[31]->frequency;
-    cout << x;
+    cout << s.find("chandra")->frequency;
+    
 }

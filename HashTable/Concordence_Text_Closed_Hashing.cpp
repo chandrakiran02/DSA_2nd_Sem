@@ -50,8 +50,6 @@ class ClosedHashTable{
 			}
 		}
 	}
-
-
 	void insert(string key){
 		int index = hash(key);  
 		if(arr[index].first.empty()){
@@ -83,24 +81,15 @@ class ClosedHashTable{
         return;
 	}
 	int get(string key){
-		
 		int index = hash(key);
-		
 		if (arr[index].first == key){
-			
 			return arr[index].second;
-			
 		}
 		else if (!arr[index].first.empty() && arr[index].first != key){
 			//linear prbe 
 			int i = index + 1;
-			
-			
 			while(i%table_size != index){
-				
 				i = i%table_size;
-				
-			
 				if (!arr[i].first.empty() && arr[i].first == key){
 			
 					return arr[i].second; 
@@ -114,8 +103,6 @@ class ClosedHashTable{
 		}
 		return 0;
 	}
-	
-
 };
 
 int main(){
