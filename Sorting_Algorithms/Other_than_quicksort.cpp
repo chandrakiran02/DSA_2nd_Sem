@@ -235,7 +235,7 @@ int main(){
         cin >> a;
         v.push_back(a);
     }
-    selection_sort(v);
+    insertion_sort(v);
 
     for(int x : v){
         cout << x << " ";

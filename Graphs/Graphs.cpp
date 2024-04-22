@@ -83,6 +83,7 @@ bool two_colourable(){}
 
 int detect_cycle(unordered_map<int, vector<int>> & g ){
 
+    
     //maintain a parent structure in dfs
     // it wont
 
@@ -186,10 +187,12 @@ int main(){
     //     i = parent[i];
     // }
 
+
+    //X(DOUBT! :::
     // There are two points to remember when using breadth-first search to find a
     // shortest path from x to y: First, the shortest path tree is only useful if BFS was
     // performed with x as the root of the search. Second, BFS gives the shortest path
-    // only if the graph is unweighted
+    // only if the graph is unweighted (probalbly from sksekia)
 
     //CONNECTED COMPONENTS  : 
 

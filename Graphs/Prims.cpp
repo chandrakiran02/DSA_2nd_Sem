@@ -12,8 +12,6 @@ struct compare{
 typedef unordered_map<int, vector<pair<int, int>>> graph;
 typedef priority_queue<vector<int>, vector<vector<int>>, compare> pq;
 
-
-//tuple<we>
 void prims(graph& g, bool*& visited, pq& pQueue, graph &ans, int& edge_count){
     if(edge_count == g.size()-1){return;}
     int curr = pQueue.top()[2];
@@ -79,6 +77,3 @@ int main(){
 }
 
 
-// Indeed, all spanning trees of an unweighted (or equally weighted) graph G are
-// minimum spanning trees, since each contains exactly n − 1 equal-weight edges.
-// Such a spanning tree can be found using depth-first or breadth-first search.

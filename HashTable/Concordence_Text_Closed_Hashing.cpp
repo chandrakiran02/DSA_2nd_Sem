@@ -129,5 +129,6 @@ int main(){
     ClosedHashTable h;
     h.insert("cha", "quadratic");
     h.insert("cha", "quadratic");
+	h.insert("cha", "linear" );
     cout << h.get("cha");
 }

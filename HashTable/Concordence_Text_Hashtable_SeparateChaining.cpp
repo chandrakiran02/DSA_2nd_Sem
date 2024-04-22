@@ -93,7 +93,7 @@ public:
 
 int main(){
     HashTable s;
-
+    s.insert("chandra");
     s.insert("chandra");
     cout << s.find("chandra")->frequency;
     

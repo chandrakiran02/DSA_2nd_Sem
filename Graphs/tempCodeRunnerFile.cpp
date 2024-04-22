@@ -1,0 +1,1 @@
+low_val[s.top()] = low_val[curr]; 
